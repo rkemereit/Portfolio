@@ -1,0 +1,132 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.project-card {
+  $block: &;
+  @include card-style;
+  @include hover-effect;
+  overflow: hidden;
+  margin-bottom: $spacing-lg;
+
+  &__content {
+    padding: $spacing-md;
+  }
+
+  &__title {
+    color: var(--text-color);
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-sm;
+    font-weight: 600;
+  }
+
+  &__description {
+    color: var(--text-secondary);
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+  }
+
+  &__read-more {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    margin-left: $spacing-xs;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-md;
+  }
+
+  &__tech-tag {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 20px;
+    font-size: $font-size-small;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+
+    @media (prefers-color-scheme: light) {
+      background-color: var(--card-background);
+      &:hover {
+        border-color: var(--hover-border);
+        box-shadow: 0 0 0 1px var(--hover-border);
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: transparent;
+      &:hover {
+        border-color: var(--hover-color);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__link {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 6px;
+    font-size: $font-size-small;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+
+    @media (prefers-color-scheme: light) {
+      background-color: var(--card-background);
+      &:hover {
+        border-color: var(--hover-border);
+        box-shadow: 0 0 0 1px var(--hover-border);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: transparent;
+      &:hover {
+        border-color: var(--hover-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Responsive adjustments
+@include mobile {
+  .project-card {
+    &__content {
+      padding: $spacing-sm;
+    }
+
+    &__title {
+      font-size: $font-size-h3 * 0.857; // ~1.2rem
+    }
+  }
+} 

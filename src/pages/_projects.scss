@@ -1,0 +1,40 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.projects-page {
+  padding: $spacing-lg;
+  max-width: $breakpoint-xl;
+  margin: 0 auto;
+
+  &__title {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-h1;
+    font-weight: 700;
+    @include text-gradient;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-lg;
+  }
+}
+
+// Responsive adjustments
+@include mobile {
+  .projects-page {
+    padding: $spacing-sm;
+
+    &__title {
+      font-size: $font-size-h1 * 0.8;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+  }
+} 

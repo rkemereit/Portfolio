@@ -1,0 +1,27 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.theme-switch {
+  background: none;
+  border: none;
+  padding: $spacing-xs;
+  color: var(--text-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  cursor: default;
+
+  &:disabled {
+    background: none;
+    opacity: 0.7;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+} 

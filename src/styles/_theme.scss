@@ -1,0 +1,124 @@
+@use 'variables' as *;
+
+// Theme variables
+:root {
+  // Primary colors
+  --primary-color: #{$color-primary};    // Dark blue-gray
+  --secondary-color: #{$color-secondary};  // Bright blue
+  --accent-color: #3498db;     // Bright blue for accents and hovers
+  
+  // Text colors
+  --text-color: #000000;       // Black for text
+  --text-light: #222222;       // Dark gray
+  --heading-color: #000000;    // Black for headers
+  --text-secondary: #222222;
+  
+  // Background colors
+  --background-color: #{$color-background};
+  --background-light: #f8f9fa;  // Light gray
+  --card-background: #ffffff;
+  
+  // Interactive colors
+  --hover-color: #3498db;      // Bright blue for hover
+  --hover-border: #3498db;     // Bright blue border on hover
+  --focus-ring: rgba(52, 152, 219, 0.2);  // Bright blue with opacity
+  --link-color: #3498db;
+  
+  // Border and shadow
+  --border-color: #{$color-border};
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 2px 8px var(--shadow-color);
+  
+  // Common values
+  --border-radius: 8px;
+  --transition-duration: 0.3s;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Primary colors
+    --primary-color: #e2e8f0;    // Soft gray
+    --secondary-color: #cbd5e1;  // Lighter gray
+    --accent-color: #e2e8f0;     // Soft gray for accents and hovers
+    
+    // Text colors
+    --text-color: #cbd5e1;       // Light gray for text
+    --text-light: #e2e8f0;       // Lighter gray
+    --heading-color: #f1f5f9;    // Almost white for headers
+    --text-secondary: #cbd5e1;
+    
+    // Background colors
+    --background-color: #1a1a1a;  // Very dark gray
+    --background-light: #1e293b;  // Dark blue-gray
+    --card-background: #2d2d2d;
+    
+    // Interactive colors
+    --hover-color: #e2e8f0;      // Light gray hover
+    --hover-border: #e2e8f0;     // Light gray border on hover
+    --focus-ring: rgba(226, 232, 240, 0.2);
+    --link-color: #e2e8f0;
+    
+    // Border and shadow
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --box-shadow: 0 4px 6px var(--shadow-color);
+  }
+}
+
+// Mixins for common styles
+@mixin card-style {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+@mixin hover-effect {
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--hover-border);
+    box-shadow: 0 4px 12px var(--shadow-color),
+                0 0 0 2px var(--hover-border);
+  }
+}
+
+@mixin button-style {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--hover-border);
+    box-shadow: 0 0 0 2px var(--hover-border);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@mixin text-gradient {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+// Media query mixin
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+} 
