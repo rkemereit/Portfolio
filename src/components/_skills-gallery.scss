@@ -5,7 +5,8 @@
   @include card-style;
   padding: $spacing-lg;
   margin: $spacing-lg auto;
-  max-width: $breakpoint-xl;
+  max-width: 800px;
+  width: 100%;
 
   &__title {
     color: var(--text-color);
@@ -49,7 +50,7 @@
 .skill-card {
   $block: &;
   background-color: transparent;
-  padding: $spacing-md;
+  padding: $spacing-sm;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -130,7 +131,7 @@
   }
 
   .skill-card {
-    padding: $spacing-sm;
+    padding: $spacing-xs;
     min-height: 100px;
 
     &__link-text {

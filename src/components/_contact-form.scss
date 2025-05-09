@@ -3,39 +3,41 @@
 
 .contact-form {
   @include card-style;
-  padding: $spacing-lg;
+  padding: $spacing-xl;
   margin: $spacing-lg auto;
-  max-width: 600px;
+  max-width: 3000px;
+  width: 100%;
 
   &__title {
     color: var(--text-color);
     text-align: center;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     font-size: $font-size-h2;
     font-weight: 600;
     @include text-gradient;
   }
 
   &__group {
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-lg;
+    width: 100%;
   }
 
   &__label {
     display: block;
     color: var(--text-color);
-    font-size: $font-size-base;
-    margin-bottom: $spacing-xs;
+    font-size: $font-size-base * 1.2;
+    margin-bottom: $spacing-sm;
   }
 
   &__input,
   &__textarea {
     width: 100%;
-    padding: $spacing-sm;
+    padding: $spacing-md;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: var(--card-background);
     color: var(--text-color);
-    font-size: $font-size-base;
+    font-size: $font-size-base * 1.2;
     transition: all 0.3s ease;
 
     &:focus {
@@ -57,15 +59,15 @@
   &__submit {
     display: block;
     width: 100%;
-    max-width: 200px;
-    margin: $spacing-md auto 0;
-    padding: $spacing-sm $spacing-lg;
+    max-width: 400px;
+    margin: $spacing-lg auto 0;
+    padding: $spacing-md $spacing-xl;
     background-color: transparent;
     color: var(--text-color);
-    font-size: $font-size-base;
+    font-size: $font-size-base * 1.2;
     font-weight: 500;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -103,22 +105,23 @@
   &__error-message {
     color: #e74c3c;
     text-align: center;
-    margin-top: $spacing-sm;
+    margin-top: $spacing-md;
   }
 
   &__success {
     text-align: center;
-    padding: $spacing-lg;
+    padding: $spacing-xl;
 
     h2 {
       color: var(--text-color);
-      margin-bottom: $spacing-md;
-      font-size: $font-size-h3;
+      margin-bottom: $spacing-lg;
+      font-size: $font-size-h2;
     }
 
     p {
       color: var(--text-secondary);
-      margin-bottom: $spacing-lg;
+      margin-bottom: $spacing-xl;
+      font-size: $font-size-base * 1.2;
     }
   }
 }
@@ -126,12 +129,23 @@
 // Responsive adjustments
 @include mobile {
   .contact-form {
-    padding: $spacing-md;
+    padding: $spacing-lg;
     margin: $spacing-md;
+    width: 90%;
 
     &__title {
       font-size: $font-size-h2 * 0.875;
-      margin-bottom: $spacing-md;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__input,
+    &__textarea {
+      padding: $spacing-md;
+      font-size: $font-size-base * 1.1;
+    }
+
+    &__textarea {
+      min-height: 150px;
     }
 
     &__submit {

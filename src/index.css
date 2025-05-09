@@ -25,15 +25,18 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
-
 }
+
 html {
   box-sizing: border-box;
   margin: 0;
+  height: 100%;
 }
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
